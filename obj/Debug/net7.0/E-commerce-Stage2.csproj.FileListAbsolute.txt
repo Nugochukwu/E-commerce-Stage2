@@ -1,0 +1,15 @@
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\bin\Debug\net7.0\E-commerce-Stage2.exe
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\bin\Debug\net7.0\E-commerce-Stage2.deps.json
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\bin\Debug\net7.0\E-commerce-Stage2.runtimeconfig.json
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\bin\Debug\net7.0\E-commerce-Stage2.dll
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\bin\Debug\net7.0\E-commerce-Stage2.pdb
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.csproj.AssemblyReference.cache
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.AssemblyInfoInputs.cache
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.AssemblyInfo.cs
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.csproj.CoreCompileInputs.cache
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.dll
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\refint\E-commerce-Stage2.dll
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.pdb
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\E-commerce-Stage2.genruntimeconfig.cache
+C:\Users\Ugochukwu Nwodo\Documents\My_Actual_Docs\Projects\Programming\C#\C#_Practice\E-commerce-Stage2\obj\Debug\net7.0\ref\E-commerce-Stage2.dll
