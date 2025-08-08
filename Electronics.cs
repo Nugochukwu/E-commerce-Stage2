@@ -21,9 +21,9 @@ namespace E_commerce_Stage2
 
         //Overriding
         public override string GetDetails()
-        {
-            return base.GetDetails() + $" Brand: {Brand}";
-        }
+        
+            => base.GetDetails() + $" Brand: {Brand}";
+        
     }
     
 }

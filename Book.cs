@@ -19,9 +19,7 @@ namespace E_commerce_Stage2
         }
 
         //Overriding
-        public override string GetDetails()
-        {
-            return base.GetDetails()  + $" Author: {Author}";
-        }
+        public override string GetDetails() => base.GetDetails()  + $" Author: {Author}";
+
     }
 }

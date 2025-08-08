@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace E_commerce_Stage2
 {
-    public abstract class Product
+    public abstract class Product: IProductDetails
     {
         public int Id { get; }
         public string Name { get; set; }

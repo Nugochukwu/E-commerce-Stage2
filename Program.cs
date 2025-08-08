@@ -92,7 +92,7 @@ class Program
         try
         {
             //declare product as a variable of the data type "Product(The class containing the object blue prints for each individual product item.)"
-            Product product = inventory.AddProduct(type, name, price, specialProperty);
+            IProductDetails product = inventory.AddProduct(type, name, price, specialProperty);
             Console.WriteLine($"\nProduct added: {product.GetDetails()}");
         }
         catch (ArgumentException ex)
@@ -106,7 +106,7 @@ class Program
     /// Display all products.
     static void ViewAllProducts(InventoryManager inventory)
     {
-        List<Product> products = inventory.GetAllProducts();
+        List<IProductDetails> products = inventory.GetAllProducts();
         if (products.Count == 0)
         {
             Console.WriteLine("Inventory is empty.");
@@ -130,11 +130,11 @@ class Program
             return;
         }
 
-        Product product = inventory.GetProductById(id);
+        IProductDetails product = inventory.GetProductById(id);
         if (product == null) Console.WriteLine("Product not found.");
         else Console.WriteLine(product.GetDetails());
     }
-
+    //Changes have been made
 
 
     /// Update a product by ID.
@@ -149,7 +149,8 @@ class Program
 
 
 
-        Product product = inventory.GetProductById(id);
+        IProductDetails product = inventory.GetProductById(id);
+        
         if (product == null)
         {
             Console.WriteLine("Product not found.");
