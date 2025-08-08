@@ -20,7 +20,7 @@ namespace E_commerce_Stage2
 
         //Overriding
 
-        public override string GetDetails() => base.GetDetails() + $"Brand: {Brand}";
+        public override string GetDetails() => base.GetDetails() + $" Brand: {Brand}";
         
     }
 }

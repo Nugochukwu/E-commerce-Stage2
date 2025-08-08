@@ -8,20 +8,20 @@ class Program
         {
             Electronics laptop = new Electronics(1, "Laptop", 1200000.00m, "Lenovo");
             Books thingsFallApart = new Books(1, "ThingFallApart", 24000.00m, "Chinewe Aguchebe");
-        
-            Console.WriteLine(laptop.GetDetails()+"\n"+thingsFallApart.GetDetails());
+
+            Console.WriteLine(laptop.GetDetails() + "\n" + thingsFallApart.GetDetails());
         }
-        catch(ArgumentException ex)
+        catch (ArgumentException ex)
         {
-            Console.WriteLine($"Input error: { ex.Message}");
+            Console.WriteLine($"Input error: {ex.Message}");
         }
-        catch(Exception ex) 
+        catch (Exception ex)
         {
             Console.WriteLine($"Unexpected error: {ex.Message}");
         }
 
 
-                                    // Console Shenanigans //
+        // Console Shenanigans //
 
 
 
@@ -62,44 +62,56 @@ class Program
     }
 
 
-                                    // Console UI //
+    // Console UI //
+
+
+    static string Prompt(string message)
+    {
+        Console.Write(message);
+        string input = Console.ReadLine()?.Trim();
+
+        if (string.Equals(input, "cancel", StringComparison.OrdinalIgnoreCase))
+            throw new OperationCanceledException("User cancelled input.");
+
+        return input;
+    }
 
 
     /// adding a product with input validation.
     static void AddProductUI(InventoryManager inventory)
     {
-        Console.Write("Enter product type (clothing/electronics/book): ");
-        string type = Console.ReadLine()?.Trim();
-
-        Console.Write("Enter product name: ");
-        string name = Console.ReadLine()?.Trim();
-
-        decimal price;
-        while (true)
-        {
-            Console.Write("Enter price: ");
-            if (decimal.TryParse(Console.ReadLine(), out price) && price >= 0) break;
-            Console.WriteLine("Invalid price. Please enter a positive number.");
-        }
-
-        Console.Write(
-            type.ToLower() == "electronics" ? "Enter brand: " :
-            type.ToLower() == "clothing" ? "Enter brand: " :
-            "Enter author: "
-        );
-        string specialProperty = Console.ReadLine()?.Trim();
-
         try
         {
-            //declare product as a variable of the data type "Product(The class containing the object blue prints for each individual product item.)"
+            string type = Prompt("Enter product type (clothing/electronics/book or 'cancel'): ");
+            string name = Prompt("Enter product name: ");
+
+            decimal price;
+            while (true)
+            {
+                string priceInput = Prompt("Enter price: ");
+                if (decimal.TryParse(priceInput, out price) && price >= 0) break;
+                Console.WriteLine("Invalid price. Please enter a positive number.");
+            }
+
+            string specialProperty = Prompt(
+                type.ToLower() == "electronics" ? "Enter brand: " :
+                type.ToLower() == "clothing" ? "Enter brand: " :
+                "Enter author: "
+            );
+
             IProductDetails product = inventory.AddProduct(type, name, price, specialProperty);
             Console.WriteLine($"\nProduct added: {product.GetDetails()}");
+        }
+        catch (OperationCanceledException)
+        {
+            Console.WriteLine("Action cancelled. Returning to menu...");
         }
         catch (ArgumentException ex)
         {
             Console.WriteLine($"\nCould not add product: {ex.Message}");
         }
     }
+
 
 
 
@@ -140,44 +152,58 @@ class Program
     /// Update a product by ID.
     static void UpdateProductUI(InventoryManager inventory)
     {
-        Console.Write("Enter product ID to update: ");
-        if (!int.TryParse(Console.ReadLine(), out int id))
-        {
-            Console.WriteLine("Invalid ID.");
-            return;
+
+
+    try
+    {
+            int id;
+            string inputId = Prompt("Enter product ID to update: ");
+
+            while (true)
+            {
+                if (int.TryParse(inputId, out id)) break;
+                Console.WriteLine("Invalid ID Please enter a valid one.");
+            }
+
+
+
+
+            IProductDetails product = inventory.GetProductById(id);
+
+            if (product == null)
+            {
+                Console.WriteLine("Product not found.");
+                return;
+            }
+
+
+
+            string newName = Prompt("Enter new name:");
+
+
+
+            decimal newPrice;
+            string inputNewPrice = Prompt("Enter new price:");
+            while (true)
+            {
+                if (decimal.TryParse(inputNewPrice, out newPrice) && newPrice >= 0) break;
+                Console.WriteLine("Invalid price. Try again.");
+            }
+
+            string newExtra = Prompt(product is Electronics ? "Enter new brand: " : product is Books ? "Enter new author: ":"Enter new brand: ");
+
+            bool updated = inventory.UpdateProduct(id, newName, newPrice, newExtra);
+            Console.WriteLine(updated ? "Product updated." : "Update failed.");
         }
-
-
-
-        IProductDetails product = inventory.GetProductById(id);
-        
-        if (product == null)
-        {
-            Console.WriteLine("Product not found.");
-            return;
+    catch (OperationCanceledException)
+    {
+            Console.WriteLine("Operation was canceled");
         }
-
-
-
-        Console.Write("Enter new name: ");
-        string newName = Console.ReadLine()?.Trim();
-
-
-
-        decimal newPrice;
-        while (true)
-        {
-            Console.Write("Enter new price: ");
-            if (decimal.TryParse(Console.ReadLine(), out newPrice) && newPrice >= 0) break;
-            Console.WriteLine("Invalid price. Try again.");
-        }
-
-        string newExtra;
-        Console.Write(product is Electronics ? "Enter new brand: " : "Enter new author: ");
-        newExtra = Console.ReadLine()?.Trim();
-
-        bool updated = inventory.UpdateProduct(id, newName, newPrice, newExtra);
-        Console.WriteLine(updated ? "Product updated." : "Update failed.");
+    catch (ArgumentException ex)
+    {
+            Console.WriteLine("Update Update Fatal error");
+    }
+    
     }
 
 

@@ -14,5 +14,5 @@ namespace E_commerce_Stage2
         string GetDetails();
     }
 
-
+   
 }
